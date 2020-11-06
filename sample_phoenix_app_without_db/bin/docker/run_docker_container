@@ -1,0 +1,10 @@
+#!/bin/bash
+
+export DOCKER_CONTAINER_NAME=${APP_NAME}
+
+docker run -it --rm -p 4000:4000 \
+  --env CANONICAL_HOST=${CANONICAL_HOST}  \
+  --env LIVE_VIEW_SIGNING_SALT="${LIVE_VIEW_SIGNING_SALT}" \
+  --env SECRET_KEY_BASE="${SECRET_KEY_BASE}"  \
+  --name ${DOCKER_CONTAINER_NAME} \
+  ${DOCKER_IMAGE_NAME}

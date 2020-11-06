@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export DOCKER_CONTAINER_NAME=${APP_NAME}
+
+docker exec -it ${DOCKER_CONTAINER_NAME} ps aux
+
