@@ -33,7 +33,7 @@ subdirectory [sample_phoenix_app_with_postgres_db](sample_phoenix_app_with_postg
 1) Set your environment variables; use `.envrc.sample` as a template.  Copy `.envrc.sample` to `.envrc` if you're using
    `direnv`, or to a `.env` file, or however you're specifying environment variables.
 1) The Dockerfile should not require any edits
-1) If your Phoenix app has a Postgres database, you'll also need to add and modify the files `lib/your_app_name/release.ex` 
+1) If your Phoenix app has a Postgres database, you'll also need to add and modify the files `lib/<your_app_name>/release.ex` 
    (which runs database migrations) and `rel/overlays/bin/start_script`.
 1) Use the scripts in `bin/docker` to create the Docker image locally, and also to run it.
 1) ***DO NOT*** forget to set `server: true` in `config/prod.exs` for your endpoint!
