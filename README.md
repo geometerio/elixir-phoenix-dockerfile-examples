@@ -11,8 +11,8 @@ You can search for the tag `CHANGE ME!` to find the few items that require edits
 One can use whatever base Docker image one wants for the Elixir build image and the app runner image, but it is recommended that
 one picks images which have the versions specified; e.g., 
 
-    APP_BUILDER_ELIXIR_DOCKER_IMAGE = hexpm/elixir:1.11.2-erlang-23.1.1-alpine-3.12.0
-    APP_RUNNER_DOCKER_IMAGE = alpine:3.12.0
+    export APP_BUILDER_ELIXIR_DOCKER_IMAGE=hexpm/elixir:1.11.2-erlang-23.1.1-alpine-3.12.0
+    export APP_RUNNER_DOCKER_IMAGE=alpine:3.12.0
 
 ## Sample Phoenix App without DB
 
@@ -43,7 +43,7 @@ subdirectory [sample_phoenix_app_with_postgres_db](sample_phoenix_app_with_postg
 Here are the steps required to deploy on Digital Ocean's App platform (after you have copied the required files
 into your project):
 
-1) Create an app on DO
+1) Create an app on Digital Ocean
 1) Set the environment variables shown in `.envrc.sample` in Overview -> Components -> Environment Variables
 1) Create a CNAME in your DNS provider for the new Digital Ocean app domain name.
 1) Set the environment variable `CANONICAL_HOST` in DO to be this new CNAME value.
