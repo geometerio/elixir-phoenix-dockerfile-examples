@@ -9,6 +9,12 @@ in `.envrc.sample`). One can also access Hex packages from a private org by sett
 You can search for the tag `CHANGE ME!` to find the few items that require edits (and there are only items for the case with a 
 database).
 
+One can use whatever base Docker image one wants for the Elixir build image and the app runner image, but it is recommended that
+one picks images which have the versions specified; e.g., 
+
+    APP_BUILDER_ELIXIR_DOCKER_IMAGE = [hexpm/elixir:1.11.2-erlang-23.1.1-alpine-3.12.0](https://hub.docker.com/layers/hexpm/elixir/1.11.2-erlang-23.1.1-alpine-3.12.0/images/sha256-d38e5ac0a87ab8b400713baef08cd4f489ea718bf22ccae3627eb43b95d541be?context=explore)
+    APP_RUNNER_DOCKER_IMAGE = [alpine:3.12.0](https://hub.docker.com/layers/alpine/library/alpine/3.12.0/images/sha256-3b3f647d2d99cac772ed64c4791e5d9b750dd5fe0b25db653ec4976f7b72837c?context=explore)
+
 ## Sample Phoenix App without DB
 
 See the [full repo here](https://github.com/geometerio/sample_phoenix_app_without_db).  The parts which have been edited
@@ -34,3 +40,5 @@ into your project):
 1) Set the environment variables shown in `.envrc.sample`
 1) Create a CNAME in your DNS for the new Digital Ocean app domain name.
 1) Set the environment variable `CANONICAL_HOST` to be this new CNAME value.
+1) Under the Digital Ocean Apps -> Settings -> Domains & Certificates, add the new CNAME (this will
+   cause a certificate to get auto-generated).
