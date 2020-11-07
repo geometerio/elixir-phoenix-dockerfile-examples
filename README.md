@@ -28,14 +28,15 @@ subdirectory [sample_phoenix_app_with_postgres_db](sample_phoenix_app_with_postg
 
 ## Creating the Docker image and running the container locally
 
-Use the scripts in `bin/docker` to create the Docker image locally, and also to run it.  You'll need to specify the 
-environment variables in `.envrc.sample` first (copy it to `.envrc` if you're using direnv, or to a `.env` file, or 
-however you specify environment variables).  No edits should be required to the Dockerfile.  Change the values in
-`config/prod.exs` and `config/runtime.exs` to match your app name, repo name, and endpoint.  If your Phoenix app
-has a Postgres database, you'll also need to add and modify the files `lib/your_app_name/release.ex` (which runs
-database migrations) and `rel/overlays/bin/start_script`.
-
-***DO NOT*** forget to set `server: true` in `config/prod.exs` for your endpoint!
+1) Copy the files from this repo into your Phoenix app (choose the database or non-database version)
+1) Edit the repo name, app name, and endpoint name in `config/prod.exs` and `config/runtime.exs'
+1) Set your environment variables; use `.envrc.sample` as a template.  Copy `.envrc.sample` to `.envrc` if you're using
+   `direnv`, or to a `.env` file, or however you're specifying environment variables.
+1) The Dockerfile should not require any edits
+1) If your Phoenix app has a Postgres database, you'll also need to add and modify the files `lib/your_app_name/release.ex` 
+   (which runs database migrations) and `rel/overlays/bin/start_script`.
+1) Use the scripts in `bin/docker` to create the Docker image locally, and also to run it.
+1) ***DO NOT*** forget to set `server: true` in `config/prod.exs` for your endpoint!
 
 ## Deploying on Digital Ocean's App Platform
 
