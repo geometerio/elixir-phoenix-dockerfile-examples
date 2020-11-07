@@ -1,18 +1,25 @@
 # Elixir/Phoenix Dockerfile Examples
 
-The files in this repo are what you need to copy into your Elixir/Phoenix project,
-based on whether your Phoenix app has a database or not, in order to get it to run on a service such as 
+The files in this repo are what you need to copy into your Elixir/Phoenix project (based on whether your Phoenix app has 
+a database or not) in order to get it to run on a service such as
 [Digital Ocean's App Platform](https://www.digitalocean.com/products/app-platform/).  Note that the Dockerfile is identical
-in both cases, and simply requires that the appropriate environment variables be set (they are specified
-in `.envrc.sample`). One can also access Hex packages from a private org by setting the appropriate environment variables.
+in both cases, and simply requires that the appropriate environment variables be set (the list of variables and example 
+values are given in `.envrc.sample`). One can also access Hex packages published by a private org by setting the appropriate 
+environment variables (`HEX_PRIVATE_ORG` and `HEX_PRIVATE_ORG_READ_ONLY_KEY`).
 
 You can search for the tag `CHANGE ME!` to find the few items that require edits.
 
 One can use whatever base Docker image one wants for the Elixir build image and the app runner image, but it is recommended that
-one picks images which have the versions specified; e.g., 
+one picks images which have specific versions for Elixir, Erlang, and Linux; e.g., 
 
     export APP_BUILDER_ELIXIR_DOCKER_IMAGE=hexpm/elixir:1.11.2-erlang-23.1.1-alpine-3.12.0
     export APP_RUNNER_DOCKER_IMAGE=alpine:3.12.0
+    
+in lieu of 
+
+    export APP_BUILDER_ELIXIR_DOCKER_IMAGE=hexpm/elixir:latest
+    export APP_RUNNER_DOCKER_IMAGE=alpine:latest
+
 
 ## Sample Phoenix App without DB
 
@@ -20,11 +27,13 @@ See the [full repo here](https://github.com/geometerio/sample_phoenix_app_withou
 and are not Phoenix-generated boilerplate have been extracted out into the 
 subdirectory [sample_phoenix_app_without_db](sample_phoenix_app_without_db)
 
+
 ## Sample Phoenix App with Postgres DB
 
 See the [full repo here](https://github.com/geometerio/sample_phoenix_app_with_postgres_db).  The parts which have been edited
 and are not Phoenix-generated boilerplate have been extracted out into the 
 subdirectory [sample_phoenix_app_with_postgres_db](sample_phoenix_app_with_postgres_db)
+
 
 ## Creating the Docker image and running the container locally
 
@@ -32,11 +41,14 @@ subdirectory [sample_phoenix_app_with_postgres_db](sample_phoenix_app_with_postg
 1) Edit the repo name, app name, and endpoint name in `config/prod.exs` and `config/runtime.exs'
 1) Set your environment variables; use `.envrc.sample` as a template.  Copy `.envrc.sample` to `.envrc` if you're using
    `direnv`, or to a `.env` file, or however you're specifying environment variables.
+1)  Get the Hex private key from hex.pm if you're going to be accessing hex packages published by a private org, and 
+    specify `HEX_PRIVATE_ORG` and `HEX_PRIVATE_ORG_READ_ONLY_KEY` (only one private org is supported).
 1) The Dockerfile should not require any edits
 1) If your Phoenix app has a Postgres database, you'll also need to add and modify the files `lib/<your_app_name>/release.ex` 
    (which runs database migrations) and `rel/overlays/bin/start_script`.
 1) Use the scripts in `bin/docker` to create the Docker image locally, and also to run it.
 1) ***DO NOT*** forget to set `server: true` in `config/prod.exs` for your endpoint!
+
 
 ## Deploying on Digital Ocean's App Platform
 
