@@ -1,5 +1,8 @@
 use Mix.Config
 
+# CHANGE ME!
+# Modify the endpoint below to match your app.
+
 # For production, don't forget to configure the url host
 # to something meaningful, Phoenix uses this information
 # when generating URLs.

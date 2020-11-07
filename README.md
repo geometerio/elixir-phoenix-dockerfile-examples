@@ -29,16 +29,23 @@ subdirectory [sample_phoenix_app_with_postgres_db](sample_phoenix_app_with_postg
 
 ## Creating the Docker image and running the container locally
 
-Use the scripts in `bin/docker` to create the Docker image locally, and also to run it.
+Use the scripts in `bin/docker` to create the Docker image locally, and also to run it.  You'll need to specify the 
+environment variables in `.envrc.sample` first (copy it to `.envrc` if you're using direnv, or to a `.env` file, or 
+however you specify environment variables).  No edits should be required to the Dockerfile.  Change the values in
+`config/prod.exs` and `config/runtime.exs` to match your app name, repo name, and endpoint.  If your Phoenix app
+has a Postgres database, you'll also need to add and modify the files `lib/your_app_name/release.ex` (which runs
+database migrations) and `rel/overlays/bin/start_script`.
+
+***DO NOT*** forget to set `server: true` in `config/prod.exs` for your endpoint!
 
 ## Deploying on Digital Ocean's App Platform
 
 Here are the steps required to deploy on Digital Ocean's App platform (after you have copied the required files
 into your project):
 
-1) Create an app
-1) Set the environment variables shown in `.envrc.sample`
-1) Create a CNAME in your DNS for the new Digital Ocean app domain name.
-1) Set the environment variable `CANONICAL_HOST` to be this new CNAME value.
-1) Under the Digital Ocean Apps -> Settings -> Domains & Certificates, add the new CNAME (this will
-   cause a certificate to get auto-generated).
+1) Create an app on DO
+1) Set the environment variables shown in `.envrc.sample` in Overview -> Components -> Environment Variables
+1) Create a CNAME in your DNS provider for the new Digital Ocean app domain name.
+1) Set the environment variable `CANONICAL_HOST` in DO to be this new CNAME value.
+1) Under the Digital Ocean Apps -> Settings -> Domains & Certificates, add the new CNAME (this will cause a certificate 
+   to get auto-generated).
