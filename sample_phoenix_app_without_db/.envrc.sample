@@ -1,7 +1,7 @@
 export APP_NAME=sample_phoenix_app_without_db
 export CANONICAL_HOST="localhost"
-export HEX_PRIVATE_ORG=geometer
-export HEX_PRIVATE_ORG_READ_ONLY_KEY="" # get HEX_GEOMETER_READ_ONLY_KEY from https://start.1password.com/open/i?a=VVH6YF3OKZBYFMLWUQR45VM3YA&v=6zxbllmxrpoziscobi7sy6jpby&i=fk553cryw5a2xpwzo5rhdpm6ue&h=geometer.1password.com
+export HEX_PRIVATE_ORG=your_org_name
+export HEX_PRIVATE_ORG_READ_ONLY_KEY="" # get value from hex.pm
 export LIVE_VIEW_SIGNING_SALT="$(mix phx.gen.secret)"
 export PORT=4000
 export SECRET_KEY_BASE="$(mix phx.gen.secret)"
