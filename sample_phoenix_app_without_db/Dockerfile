@@ -31,6 +31,7 @@ RUN mix do deps.get --only prod, deps.compile && \
   mix phx.digest && \
   mix do compile, release
 
+# -------------------------------------------------------------------------------------------------
 ARG APP_RUNNER_DOCKER_IMAGE
 FROM $APP_RUNNER_DOCKER_IMAGE AS app_runner
 ARG APP_NAME
