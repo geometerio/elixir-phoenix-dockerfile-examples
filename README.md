@@ -6,8 +6,7 @@ based on whether your Phoenix app has a database or not, in order to get it to r
 in both cases, and simply requires that the appropriate environment variables be set (they are specified
 in `.envrc.sample`). One can also access Hex packages from a private org by setting the appropriate environment variables.
 
-You can search for the tag `CHANGE ME!` to find the few items that require edits (and there are only items for the case with a 
-database).
+You can search for the tag `CHANGE ME!` to find the few items that require edits.
 
 One can use whatever base Docker image one wants for the Elixir build image and the app runner image, but it is recommended that
 one picks images which have the versions specified; e.g., 
