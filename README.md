@@ -56,7 +56,7 @@ If you have a Postgres database, you'll need to do these additional steps:
    to `postgres://postgres:postgres@host.docker.internal/sample_phoenix_app_with_postgres_db_dev?sslmode=disable`
 1) Add and modify the file `lib/<your_app_name>/release.ex` for running migrations 
 
-Note that the Dockerfile should not require any edits
+Note that the Dockerfile should not require any edits.
 
 
 ## Deploying on Digital Ocean's App Platform
