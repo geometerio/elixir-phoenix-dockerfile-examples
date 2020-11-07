@@ -1,3 +1,4 @@
+# CHANGE ME!  Module name is specific to your application
 defmodule SamplePhoenixAppWithPostgresDB.Release do
   @moduledoc """
   Export functions to run in the context of Elixir releases.

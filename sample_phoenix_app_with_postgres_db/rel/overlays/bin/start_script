@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 # Note bash is not available on Alpine Linux
 
+# CHANGE ME!  Module name and app name is specific to your application
 /app/bin/sample_phoenix_app_with_postgres_db eval "SamplePhoenixAppWithPostgresDB.Release.migrate()"
 /app/bin/sample_phoenix_app_with_postgres_db start
