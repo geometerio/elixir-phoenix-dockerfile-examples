@@ -6,8 +6,8 @@ export LIVE_VIEW_SIGNING_SALT="$(mix phx.gen.secret)"
 export PORT=4000
 export SECRET_KEY_BASE="$(mix phx.gen.secret)"
 
-export ALPINE_VERSION=3.12.0
-export APP_BUILDER_ELIXIR_DOCKER_IMAGE="hexpm/elixir:1.11.2-erlang-23.1.1-alpine-${ALPINE_VERSION}"
+export ALPINE_VERSION=3.12.1
+export APP_BUILDER_ELIXIR_DOCKER_IMAGE="hexpm/elixir:1.11.2-erlang-23.1.2-alpine-${ALPINE_VERSION}"
 export APP_RUNNER_DOCKER_IMAGE="alpine:${ALPINE_VERSION}"
 
 # Not needed on Digital Ocean:

@@ -12,8 +12,8 @@ You can search for the tag `CHANGE ME!` to find the few items that require custo
 One can use whatever base Docker image one wants for the Elixir build image and the app runner image, but it is recommended that
 one picks images which have specific versions for Elixir, Erlang, and Linux; e.g., 
 
-    export APP_BUILDER_ELIXIR_DOCKER_IMAGE=hexpm/elixir:1.11.2-erlang-23.1.1-alpine-3.12.0
-    export APP_RUNNER_DOCKER_IMAGE=alpine:3.12.0
+    export APP_BUILDER_ELIXIR_DOCKER_IMAGE=hexpm/elixir:1.11.2-erlang-23.1.2-alpine-3.12.1
+    export APP_RUNNER_DOCKER_IMAGE=alpine:3.12.1
     
 in lieu of 
 
@@ -64,6 +64,7 @@ Note that the Dockerfile should not require any edits.
 Here are the steps required to deploy on Digital Ocean's App platform (after you have copied the required files
 into your project):
 
+1) If you want to customize your BEAM VM parameters, run `mix release.init` and customize the files in the `rel` directory
 1) Create an app on Digital Ocean
 1) Set the environment variables shown in `.envrc.sample` in Overview -> Components -> Environment Variables
 1) Create a CNAME in your DNS provider for the new Digital Ocean app domain name.
