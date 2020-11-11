@@ -7,6 +7,8 @@ in both cases, and simply requires that the appropriate environment variables be
 values are given in `.envrc.sample`). One can also access Hex packages published by a private org by setting the appropriate 
 environment variables (`HEX_PRIVATE_ORG` and `HEX_PRIVATE_ORG_READ_ONLY_KEY`).
 
+This Dockerfile assumes you are deploying on Alpine Linux (it uses the `apk` package manager).
+
 You can search for the tag `CHANGE ME!` to find the few items that require custom edits.
 
 One can use whatever base Docker image one wants for the Elixir build image and the app runner image, but it is recommended that
