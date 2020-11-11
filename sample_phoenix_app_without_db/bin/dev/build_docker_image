@@ -6,4 +6,5 @@ docker build \
   --build-arg APP_NAME=${APP_NAME} \
   --build-arg HEX_PRIVATE_ORG=${HEX_PRIVATE_ORG} \
   --build-arg HEX_PRIVATE_ORG_READ_ONLY_KEY=${HEX_PRIVATE_ORG_READ_ONLY_KEY} \
+  # --build-arg ADDITIONAL_LINUX_PACKAGES="openssl-dev curl groff" \
   --tag ${DOCKER_IMAGE_NAME} .

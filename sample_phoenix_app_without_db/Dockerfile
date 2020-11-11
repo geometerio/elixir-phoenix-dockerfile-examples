@@ -6,7 +6,8 @@ FROM $APP_BUILDER_ELIXIR_DOCKER_IMAGE AS app_builder
 ENV MIX_ENV=prod
 WORKDIR /app
 
-RUN apk add --no-cache build-base npm git python3 && \
+ARG ADDITIONAL_LINUX_PACKAGES=""
+RUN apk add --no-cache build-base npm git python3 $ADDITIONAL_LINUX_PACKAGES && \
   mix local.hex --force && \
   mix local.rebar --force
 
